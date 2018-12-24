@@ -31,32 +31,34 @@ const acm = new ACMClient({
 });
 
 async function demo() {
-	// get config
-	const content = await acm.getConfig('test', 'DEFAULT_GROUP');
-	console.log('getConfig = ', content);
+    // get config
+    const content = await acm.getConfig('test', 'DEFAULT_GROUP');
+    console.log('getConfig = ', content);
 
     // get all configs
-	const allConfig = await amc.getAllConfigInfo();
+    const allConfig = await amc.getAllConfigInfo();
     console.log('all config:', allConfig);
 
     // subscribe config
-	await acm.subscribe({
+    acm.subscribe({
         dataId: 'test',
         group: 'DEFAULT_GROUP',
     }, content => {
         console.log('config update:', content);
-	});
+    });
 
     // publish config
     await acm.publishSingle('test', 'DEFAULT_GROUP', JSON.stringify({value: 'test'}));
 
     // delete config
-	await acm.remove('test', 'DEFAULT_GROUP');
+    await acm.remove('test', 'DEFAULT_GROUP');
 
     // batch get config
-	const contents = await amc.batchGetConfig(['test', 'test1'], 'DEFAULT_GROUP');
+    const contents = await amc.batchGetConfig(['test', 'test1'], 'DEFAULT_GROUP');
     console.log('batch get configs = ', contents);
 }
+
+demo();
 ```
 
 
