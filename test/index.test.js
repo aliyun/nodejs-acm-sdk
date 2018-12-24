@@ -30,8 +30,8 @@ describe('acm export client should success', function () {
     expect(config.value).to.be('test');
   });
 
-  it('get configs', async function () {
-    const allconfig = await client.getConfigs();
+  it('get all config', async function () {
+    const allconfig = await client.getAllConfigInfo();
     expect(Array.isArray(allconfig)).to.be(true);
     expect([3, 4, 5].includes(allconfig.length)).to.be(true);
   });
