@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/acm-sdk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "aliyun acm sdk",
   "main": "lib/index.js",
   "scripts": {
