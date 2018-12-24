@@ -137,7 +137,21 @@ demo();
 
 * **configList** Array - list of configs
 
+## Test & Coverage
 
+You should set environment variables before running the test or coverage. For example:
+
+* run test
+
+```
+NAMESPACE=<your namespace> ACCESS_KEY=<your access key> SECRET_KEY=<your secret key> npm run test
+```
+
+* run code coverage
+
+```
+NAMESPACE=<your namespace> ACCESS_KEY=<your access key> SECRET_KEY=<your secret key> npm run cov
+```
 
 ## License
 
