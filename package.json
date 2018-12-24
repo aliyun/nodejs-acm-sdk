@@ -40,5 +40,8 @@
   "bugs": {
     "url": "https://github.com/aliyun/nodejs-acm-sdk/issues"
   },
-  "homepage": "https://github.com/aliyun/nodejs-acm-sdk#readme"
+  "homepage": "https://github.com/aliyun/nodejs-acm-sdk#readme",
+  "files": [
+    "lib"
+  ]
 }
