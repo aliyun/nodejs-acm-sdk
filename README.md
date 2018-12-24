@@ -1,8 +1,8 @@
 # Aliyun ACM Client for Node.js
 
 [![npm version](https://badge.fury.io/js/@alicloud%2facm-sdk.svg)](https://badge.fury.io/js/@alicloud%2facm-sdk.svg)
-[![Build Status](https://api.travis-ci.org/aliyun-node/nodejs-acm-sdk.png?branch=master)](https://travis-ci.org/aliyun-node/nodejs-acm-sdk)
-[![codecov](https://codecov.io/gh/aliyun-node/nodejs-acm-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/aliyun-node/nodejs-acm-sdk)
+[![Build Status](https://api.travis-ci.org/aliyun/nodejs-acm-sdk.png?branch=master)](https://travis-ci.org/aliyun/nodejs-acm-sdk)
+[![codecov](https://codecov.io/gh/aliyun/nodejs-acm-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/aliyun/nodejs-acm-sdk)
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](LICENSE)
 
 
