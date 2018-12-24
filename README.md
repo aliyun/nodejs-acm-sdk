@@ -1,1 +1,1 @@
-# Aliyun [ACM](https://www.aliyun.com/product/acm) client for Node.js
+# Aliyun ACM Client for Node.js
