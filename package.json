@@ -4,10 +4,12 @@
   "description": "aliyun acm sdk",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "make lint",
-    "test": "make test",
-    "cov": "make cov",
-    "ci": "make ci"
+    "lint": "eslint --fix lib/*.js test/*.js",
+    "build-test-data": "node ./test/fixtures/data.js",
+    "test": "npm run build-test-data && mocha -R spec test/*.test.js --timeout 15000",
+    "cov": "npm run build-test-data && nyc --reporter=html --reporter=text --reporter=lcov mocha -R spec test/*.test.js --timeout 15000",
+    "ci": "npm run lint && npm run cov && codecov",
+    "clean": "rm -rf coverage"
   },
   "repository": {
     "type": "git",
