@@ -12,7 +12,7 @@ test:
 
 cov:
 	make test-data
-	./node_modules/.bin/nyc --reporter=html --reporter=text ./node_modules/.bin/mocha -R spec test/*.test.js --timeout 15000
+	./node_modules/.bin/nyc --reporter=html --reporter=text --reporter=lcov ./node_modules/.bin/mocha -R spec test/*.test.js --timeout 15000
 
 ci:
 	make lint
