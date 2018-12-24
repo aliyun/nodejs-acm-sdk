@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aliyun-node/nodejs-acm-sdk.git"
+    "url": "git+https://github.com/aliyun/nodejs-acm-sdk.git"
   },
   "keywords": [
     "aliyun",
@@ -36,11 +36,10 @@
     "@alicloud/http-core-sdk": "^1.0.0",
     "iconv-lite": "^0.4.24",
     "is-type-of": "^1.2.0",
-    "urlencode": "^1.1.0",
-    "utility": "^1.14.0"
+    "urlencode": "^1.1.0"
   },
   "bugs": {
-    "url": "https://github.com/aliyun-node/nodejs-acm-sdk/issues"
+    "url": "https://github.com/aliyun/nodejs-acm-sdk/issues"
   },
-  "homepage": "https://github.com/aliyun-node/nodejs-acm-sdk#readme"
+  "homepage": "https://github.com/aliyun/nodejs-acm-sdk#readme"
 }

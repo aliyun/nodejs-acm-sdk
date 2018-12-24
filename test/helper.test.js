@@ -70,4 +70,14 @@ describe('helper should success', function () {
     expect(error.includes('+++++')).to.be(true);
     expect(error.includes('*****')).to.be(true);
   });
+
+  it('random array index', function () {
+    const length = 10;
+    const indexList = new Set();
+    for (let i = 0; i < 10000; i++) {
+      const randomIndex = helper.random(length);
+      indexList.add(randomIndex);
+    }
+    expect(indexList.size).to.be(length);
+  });
 });
