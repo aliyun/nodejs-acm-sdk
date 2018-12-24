@@ -1,0 +1,44 @@
+{
+  "name": "@alicloud/acm-sdk",
+  "version": "1.0.0",
+  "description": "aliyun acm sdk",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "make lint",
+    "test": "make test",
+    "cov": "make cov",
+    "ci": "make ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aliyun-node/nodejs-acm-sdk.git"
+  },
+  "keywords": [
+    "aliyun",
+    "acm",
+    "sdk"
+  ],
+  "author": "Alibaba Cloud SDK",
+  "license": "MIT",
+  "devDependencies": {
+    "muk": "^0.5.3",
+    "codecov": "^3.1.0",
+    "eslint": "^5.10.0",
+    "expect.js": "^0.3.1",
+    "mm": "^2.4.1",
+    "mocha": "^5.2.0",
+    "nyc": "^13.1.0",
+    "rewire": "^4.0.1"
+  },
+  "dependencies": {
+    "@alicloud/http-core-sdk": "^1.0.0",
+    "iconv-lite": "^0.4.24",
+    "is-type-of": "^1.2.0",
+    "urlencode": "^1.1.0",
+    "utility": "^1.14.0"
+  },
+  "bugs": {
+    "url": "https://github.com/aliyun-node/nodejs-acm-sdk/issues"
+  },
+  "homepage": "https://github.com/aliyun-node/nodejs-acm-sdk#readme"
+}
