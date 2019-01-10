@@ -1,6 +1,6 @@
 'use strict';
 
-const ACMClient = require('../../lib/');
+const { ACMClient } = require('../../lib/');
 const client = new ACMClient({
   endpoint: 'acm.aliyun.com',
   namespace: process.env.NAMESPACE,

@@ -20,7 +20,7 @@ npm install @alicloud/acm-sdk
 ## Usage
 
 ```js
-const ACMClient = require('@alicloud/acm-sdk');
+const { ACMClient } = require('@alicloud/acm-sdk');
 
 const acm = new ACMClient({
   endpoint: 'acm.aliyun.com', // check this from acm console

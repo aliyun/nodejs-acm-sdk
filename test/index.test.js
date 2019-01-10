@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('expect.js');
-const ACMClient = require('../lib/');
+const { ACMClient } = require('../lib/');
 
 describe('acm export client should success', function () {
   const client = new ACMClient({
