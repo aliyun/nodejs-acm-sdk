@@ -1,4 +1,4 @@
-# Aliyun ACM Client for Node.js
+# Alibaba Cloud ACM client for Node.js
 
 [![npm version](https://badge.fury.io/js/@alicloud%2facm-sdk.svg)](https://badge.fury.io/js/@alicloud%2facm-sdk.svg)
 [![Build Status](https://api.travis-ci.org/aliyun/nodejs-acm-sdk.png?branch=master)](https://travis-ci.org/aliyun/nodejs-acm-sdk)
