@@ -21,8 +21,8 @@ describe('acm base client should success', function () {
       new ACMBaseClient({
         endpoint: 'acm.aliyun.com',
         namespace: 'xxxxxx',
-        accessKey: 'xxxxxx',
-        secretKey: 'xxxxxx',
+        accessKeyId: 'xxxxxx',
+        accessKeySecret: 'xxxxxx',
       });
     } catch (e) {
       error = e.message;
@@ -59,7 +59,7 @@ describe('acm base client should success', function () {
       new ACMBaseClient({
         endpoint: 'acm.aliyun.com',
         namespace: 'xxxxxx',
-        accessKey: 'xxxxxx',
+        accessKeyId: 'xxxxxx',
       });
     } catch (e) {
       error = e.message;
@@ -70,8 +70,8 @@ describe('acm base client should success', function () {
   const client = new ACMBaseClient({
     endpoint: 'acm.aliyun.com',
     namespace: process.env.NAMESPACE,
-    accessKey: process.env.ACCESS_KEY,
-    secretKey: process.env.SECRET_KEY
+    accessKeyId: process.env.ACCESS_KEY,
+    accessKeySecret: process.env.SECRET_KEY
   });
 
   it('parse response as gbk string', async function () {
@@ -217,5 +217,38 @@ describe('acm base client should success', function () {
     expect(client.__parseProbe('string')).to.be('');
     expect(client.__parseProbe(false)).to.be('');
     expect(client.__parseProbe(123)).to.be('');
+  });
+});
+
+describe('acm base client should success with credential', function () {
+  let client2;
+  it('init acm base client constructor', function () {
+    let error = '';
+    try {
+      client2 = new ACMBaseClient({
+        endpoint: 'acm.aliyun.com',
+        namespace: 'xxxxxx',
+        credential: {
+          getCredential() {
+            return {
+              accessKeyId: '***',
+              accessKeySecret: '***',
+              securityToken: '***'
+            };
+          }
+        }
+      });
+    } catch (e) {
+      error = e.message;
+    }
+    expect(error).to.be('');
+  });
+
+  it('get signature', async function () {
+    expect(typeof await client2.__get_signature({ query: { k1: 'v1', k2: 'v1' }, headers: {} })).to.be('string');
+    expect(typeof await client2.__get_signature({ body: { k1: 'v1', k2: 'v2' }, headers: {} }, 'encode')).to.be('string');
+    expect(typeof await client2.__get_signature({ body: { k1: 'v1', k2: 'v3' }, headers: {} }, 'form')).to.be('string');
+    expect(typeof await client2.__get_signature({ query: { group: 'g1' }, headers: {} })).to.be('string');
+    expect(typeof await client2.__get_signature({ query: { group: 'g1', tenant: 't1' }, headers: {} })).to.be('string');
   });
 });
