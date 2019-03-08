@@ -23,7 +23,7 @@ module acm {
   type @to_array = (string): [string]
   type @get_host = (): string
   type @get_timestamp = (): string
-  type @get_signature = ($Request, string): string
+  type @get_signature = async ($Request, string): string
   type @to_form = (object): string
   type @to_string = ([string]): string
   type @content_length = ($Request): integer
@@ -116,7 +116,6 @@ module acm {
 
     headers = {
       host = @get_host(),
-      spas-accesskey = @accessKeyId,
       timestamp = @get_timestamp()
     };
 
@@ -159,7 +158,6 @@ module acm {
 
     headers = {
       host = @get_host(),
-      spas-accesskey = @accessKeyId,
       timestamp = @get_timestamp(),
       content-type = 'application/x-www-form-urlencoded;charset=GBK',
       exconfiginfo = 'true'
@@ -205,7 +203,6 @@ module acm {
 
     headers = {
       host = @get_host(),
-      spas-accesskey = @accessKeyId,
       timestamp = @get_timestamp(),
       content-type = 'application/x-www-form-urlencoded;charset=GBK',
       exconfiginfo = 'true'
@@ -261,7 +258,6 @@ module acm {
 
     headers = {
       host = @get_host(),
-      spas-accesskey = @accessKeyId,
       timestamp = @get_timestamp()
     };
 
@@ -305,7 +301,6 @@ module acm {
     headers = {
       host = @get_host(),
       longpullingtimeout = @longpullingtimeout,
-      spas-accesskey = @accessKeyId,
       timestamp = @get_timestamp(),
       content-type = 'application/x-www-form-urlencoded;charset=GBK'
     };
@@ -353,7 +348,6 @@ module acm {
 
     headers = {
       host = @get_host(),
-      spas-accesskey = @accessKeyId,
       timestamp = @get_timestamp(),
       content-type = 'application/x-www-form-urlencoded;charset=GBK'
     };
@@ -406,7 +400,6 @@ module acm {
 
     headers = {
       host = @get_host(),
-      spas-accesskey = @accessKeyId,
       timestamp = @get_timestamp(),
       content-type = 'application/x-www-form-urlencoded;charset=GBK'
     };

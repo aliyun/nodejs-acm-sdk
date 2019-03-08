@@ -15,32 +15,83 @@ npm install @alicloud/acm-sdk
 
 **Node.js >= 8.5.0** required.
 
-
-
 ## Usage
 
-```js
-const ACMClient = require('@alicloud/acm-sdk');
+### Client with accessKeyId & accessKeySecret
 
-const acm = new ACMClient({
+```js
+const AcmClient = require('@alicloud/acm-sdk');
+const client = new AcmClient({
   endpoint: 'acm.aliyun.com', // check this from acm console
   namespace: '***************', // check this from acm console
-  accessKey: '***************', // check this from acm console
-  secretKey: '***************', // check this from acm console
+  accessKeyId: '***************', // check this from acm console
+  accessKeySecret: '***************', // check this from acm console
   requestTimeout: 6000, // timeout(ms)，default 6s
 });
+```
+
+### Client with sdk credentials
+
+**Attention:** acm only supports directly accessKeyId & accessKeySecret credential
+
+Credentials file example (~/.alibabacloud/credentials):
+
+```bash
+[acm-demo]
+enable = true
+type = access_key
+access_key_id = ******
+access_key_secret = ******
+```
+
+ Actually **@alicloud/credentials** will automatically load credentials from the credentials file above.
+
+ Client example:
+
+ ```js
+const AcmClient = require('@alicloud/acm-sdk');
+const Credentials = require('@alicloud/credentials');
+const client = new AcmClient({
+  endpoint: 'acm.aliyun.com', // check this from acm console
+  namespace: '***************', // check this from acm console
+  requestTimeout: 6000, // timeout(ms)，default 6s
+  credential: new Credentials({ profile: 'acm-demo' })
+});
+```
+
+Similarly, we also support setting explicit credentials file path like:
+
+```js
+const AcmClient = require('@alicloud/acm-sdk');
+const Credentials = require('@alicloud/credentials');
+const client = new AcmClient({
+  endpoint: 'acm.aliyun.com', // check this from acm console
+  namespace: '***************', // check this from acm console
+  requestTimeout: 6000, // timeout(ms)，default 6s
+  credential: new Credentials({
+    credentialsFile: '/path/to/your/credential'
+    profile: 'acm-demo'
+  })
+});
+```
+
+Please see [@alicloud/credentials docs](https://github.com/aliyun/nodejs-credentials#usage) for more information.
+
+### Api demo
+
+```js
 
 async function demo() {
     // get config
-    const content = await acm.getConfig('test', 'DEFAULT_GROUP');
+    const content = await client.getConfig('test', 'DEFAULT_GROUP');
     console.log('getConfig = ', content);
 
     // get all configs
-    const allConfig = await amc.getAllConfigInfo();
+    const allConfig = await client.getAllConfigInfo();
     console.log('all config:', allConfig);
 
     // subscribe config
-    acm.subscribe({
+    client.subscribe({
         dataId: 'test',
         group: 'DEFAULT_GROUP',
     }, content => {
@@ -48,13 +99,13 @@ async function demo() {
     });
 
     // publish config
-    await acm.publishSingle('test', 'DEFAULT_GROUP', JSON.stringify({value: 'test'}));
+    await client.publishSingle('test', 'DEFAULT_GROUP', JSON.stringify({value: 'test'}));
 
     // delete config
-    await acm.remove('test', 'DEFAULT_GROUP');
+    await client.remove('test', 'DEFAULT_GROUP');
 
     // batch get config
-    const contents = await amc.batchGetConfig(['test', 'test1'], 'DEFAULT_GROUP');
+    const contents = await client.batchGetConfig(['test', 'test1'], 'DEFAULT_GROUP');
     console.log('batch get configs = ', contents);
 }
 
@@ -144,13 +195,13 @@ You should set environment variables before running the test or coverage. For ex
 * run test
 
 ```
-NAMESPACE=<your namespace> ACCESS_KEY=<your access key> SECRET_KEY=<your secret key> npm run test
+NAMESPACE=<your namespace> ACCESS_KEY=<your access key id> SECRET_KEY=<your secret key id> npm run test
 ```
 
 * run code coverage
 
 ```
-NAMESPACE=<your namespace> ACCESS_KEY=<your access key> SECRET_KEY=<your secret key> npm run cov
+NAMESPACE=<your namespace> ACCESS_KEY=<your access key id> SECRET_KEY=<your secret key id> npm run cov
 ```
 
 ## License
